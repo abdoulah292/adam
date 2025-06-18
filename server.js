@@ -16,7 +16,7 @@ app.use(express.json());
 app.use(express.static(path.join(__dirname, '../build'))); // خدمة ملفات البناء
 
 // Connect to MongoDB
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/attendance', {
+mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hnabdoulah:u0GcWPekRJeEz7xq@cluster0.ujk3hio.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
