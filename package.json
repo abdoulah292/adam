@@ -4,9 +4,6 @@
   "main": "server.js",
   "scripts": {
     "test": "nodemon server",
-    "start": "NODE_ENV=production node server.js",
-    "dev": "NODE_ENV=development nodemon server.js",
-    "build": "npm run build && npm start"
   },
     "engines": {
     "node": "22.x"
