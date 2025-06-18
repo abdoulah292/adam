@@ -13,7 +13,7 @@ const app = express();
 // Middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.static(path.join(__dirname, '../build'))); // خدمة ملفات البناء
+app.use(express.static(path.join(__dirname, './build'))); // خدمة ملفات البناء
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hnabdoulah:u0GcWPekRJeEz7xq@cluster0.ujk3hio.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
@@ -24,10 +24,10 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hnabdoulah:u0GcWPekRJ
 .catch(err => console.error('MongoDB connection error:', err));
 
 // خدمة ملفات البناء في وضع الإنتاج
-  app.use(express.static(path.join(__dirname, '../build')));
+  app.use(express.static(path.join(__dirname, './build')));
   
   app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, '../build', 'index.html'));
+    res.sendFile(path.join(__dirname, './build', 'index.html'));
   });
 
 
