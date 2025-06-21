@@ -23,12 +23,6 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb+srv://hnabdoulah:u0GcWPekRJ
 .then(() => console.log('Connected to MongoDB'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-// خدمة ملفات البناء في وضع الإنتاج
-  app.use(express.static(path.join(__dirname, './build')));
-  
-  app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, './build', 'index.html'));
-  });
 
 
 // Models
@@ -260,6 +254,13 @@ app.post('/api/players', async (req, res) => {
         res.status(400).json({ message: error.message });
     }
 });
+
+// خدمة ملفات البناء في وضع الإنتاج
+  app.use(express.static(path.join(__dirname, './build')));
+  
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, './build', 'index.html'));
+  });
 
 
 // Start server
